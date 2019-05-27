@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <script src="../static/js/Chart.js"></script>
+    <script src="../static/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<h1>{{BaoOne}}</h1>
+<canvas id="popChart1" width="100" height="50"></canvas>
+<h1>{{Baotwo}}</h1>
+<canvas id="popChart2" width="100" height="50"></canvas>
+<h1>{{Baothree}}</h1>
+<canvas id="popChart3" width="100" height="50"></canvas>
+<script>
+    $(function(){
+    $.post('/text/',{'start':1},function (data) {
+        datas = JSON.parse(data);
+        var popCanvas = document.getElementById("popChart1").getContext("2d");
+    var barChart = new Chart(popCanvas, {
+        type: 'doughnut',
+        data: {
+            labels: ["好", "中等", "差"],
+            datasets: [{
+                label: 'Population',
+                data: [datas["a1"],datas["a2"] ,datas["a3"] ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    // 'rgba(75, 192, 192, 0.6)',
+                    // 'rgba(153, 102, 255, 0.6)',
+                    // 'rgba(255, 159, 64, 0.6)',
+                    // 'rgba(255, 99, 132, 0.6)',
+                    // 'rgba(54, 162, 235, 0.6)',
+                    // 'rgba(255, 206, 86, 0.6)',
+                    // 'rgba(75, 192, 192, 0.6)',
+                    // 'rgba(153, 102, 255, 0.6)'
+                ]
+            }]
+        }
+    });
+
+    var popCanvas2 = document.getElementById("popChart2").getContext("2d");
+    var barChart2 = new Chart(popCanvas2, {
+        type: 'doughnut',
+        data: {
+            labels: ["好", "中等", "差"],
+            datasets: [{
+                label: 'Population',
+                data: [datas["b1"],datas["b2"] ,datas["b3"] ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    // 'rgba(75, 192, 192, 0.6)',
+                    // 'rgba(153, 102, 255, 0.6)',
+                    // 'rgba(255, 159, 64, 0.6)',
+                    // 'rgba(255, 99, 132, 0.6)',
+                    // 'rgba(54, 162, 235, 0.6)',
+                    // 'rgba(255, 206, 86, 0.6)',
+                    // 'rgba(75, 192, 192, 0.6)',
+                    // 'rgba(153, 102, 255, 0.6)'
+                ]
+            }]
+        }
+    });
+
+    var popCanvas3 = document.getElementById("popChart3").getContext("2d");
+    var barChart3 = new Chart(popCanvas3, {
+        type: 'doughnut',
+        data: {
+            labels: ["好", "中等", "差"],
+            datasets: [{
+                label: 'Population',
+                data: [datas["c1"],datas["c2"] ,datas["c3"] ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    // 'rgba(75, 192, 192, 0.6)',
+                    // 'rgba(153, 102, 255, 0.6)',
+                    // 'rgba(255, 159, 64, 0.6)',
+                    // 'rgba(255, 99, 132, 0.6)',
+                    // 'rgba(54, 162, 235, 0.6)',
+                    // 'rgba(255, 206, 86, 0.6)',
+                    // 'rgba(75, 192, 192, 0.6)',
+                    // 'rgba(153, 102, 255, 0.6)'
+                ]
+            }]
+        }
+    });
+    })
+});
+
+
+
+</script>
+</body>
+</html>
